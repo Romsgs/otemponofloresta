@@ -2,6 +2,10 @@ from fastapi import APIRouter, Path
 from api.database.database import get_by_date, get_measurements, add_measurement
 router = APIRouter()
 
+@router.get('/')
+def index():
+  return "Running"
+
 @router.get('/getdata/{date}')
 def getdata(date):
   return get_by_date(date)
